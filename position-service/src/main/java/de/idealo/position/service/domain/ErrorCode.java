@@ -11,7 +11,9 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 @AllArgsConstructor
 @Getter
 public enum ErrorCode {
-  INVALID_REQUEST(BAD_REQUEST, "Invalid client request : {0}");
+  INVALID_REQUEST(BAD_REQUEST, "Invalid client request : {0}"),
+  INVALID_ANGLE(BAD_REQUEST, "Invalid angle for position : {0}"),
+  INVALID_INITIAL_POSITION(BAD_REQUEST, "Initial Position is not valid: x={0} ,y={1}");
 
   private HttpStatus status;
   private String message;

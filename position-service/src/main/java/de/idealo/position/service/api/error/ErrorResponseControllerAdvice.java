@@ -1,5 +1,6 @@
 package de.idealo.position.service.api.error;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import de.idealo.position.service.api.dto.ErrorResponse;
 import de.idealo.position.service.domain.ErrorCode;
 import de.idealo.position.service.domain.ErrorResultException;
@@ -51,6 +52,30 @@ public class ErrorResponseControllerAdvice {
         .type(ex.getType())
         .message(ex.getMessage())
         .status(ex.getStatus())
+        .build()
+      );
+  }
+
+  @ExceptionHandler(JsonParseException.class)
+  public ResponseEntity<ErrorResponse> handleJsonParseExceptionException(final JsonParseException ex) {
+    return ResponseEntity.status(BAD_REQUEST)
+      .body(ErrorResponse.builder()
+        .code(ErrorCode.INVALID_REQUEST.name())
+        .type(BAD_REQUEST.name())
+        .message(ex.getMessage())
+        .status(ErrorCode.INVALID_REQUEST.getStatus().value())
+        .build()
+      );
+  }
+
+  @ExceptionHandler(IllegalArgumentException.class)
+  public ResponseEntity<ErrorResponse> handleIllegalArgumentException(final IllegalArgumentException ex) {
+    return ResponseEntity.status(BAD_REQUEST)
+      .body(ErrorResponse.builder()
+        .code(ErrorCode.INVALID_REQUEST.name())
+        .type(BAD_REQUEST.name())
+        .message(ex.getMessage())
+        .status(ErrorCode.INVALID_REQUEST.getStatus().value())
         .build()
       );
   }
