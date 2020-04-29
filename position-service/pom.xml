@@ -12,10 +12,12 @@
 	<artifactId>position-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>position-service</name>
-	<description>Position Service for Idealo Robot Application</description>
+	<description>Position Service for Robot Application</description>
 
 	<properties>
-		<java.version>11</java.version>
+    <java.version>11</java.version>
+    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
 	</properties>
 
 	<dependencies>
@@ -50,15 +52,73 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+    <!-- Swagger UI -->
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>2.9.2</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>2.9.2</version>
+      <scope>compile</scope>
+    </dependency>
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>2.17</version>
+        <executions>
+          <execution>
+            <id>validate</id>
+            <phase>validate</phase>
+            <configuration>
+              <includeTestSourceDirectory>true</includeTestSourceDirectory>
+              <configLocation>${basedir}/checkstyle.xml</configLocation>
+              <propertyExpansion>config_loc=${basedir}</propertyExpansion>
+              <encoding>UTF-8</encoding>
+              <consoleOutput>true</consoleOutput>
+              <failsOnError>true</failsOnError>
+              <logViolationsToConsole>true</logViolationsToConsole>
+            </configuration>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.0.0</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>checkstyle</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+        <configuration>
+          <configLocation>${basedir}/checkstyle.xml</configLocation>
+          <propertyExpansion>config_loc=${basedir}</propertyExpansion>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
 
 </project>
