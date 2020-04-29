@@ -10,5 +10,5 @@ import lombok.With;
 public class ActionPosition {
   private String action;
   private Position position;
-  private boolean isValid;
+  private boolean valid;
 }

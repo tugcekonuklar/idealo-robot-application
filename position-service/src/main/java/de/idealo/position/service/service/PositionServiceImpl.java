@@ -69,9 +69,9 @@ public class PositionServiceImpl implements PositionService {
     final var details = getStepDetail(step);
     final var actionPosition = ActionPosition.builder()
       .position(position)
-      .isValid(true)
+      .valid(true)
       .build();
-    switch (details.get(0).toUpperCase()) {
+    switch (details.get(0).trim().toUpperCase()) {
       case POSITION_ACTION:
         return actionPosition
           .withPosition(initialisePosition(details, verticalLimit, horizontalLimit))
@@ -129,7 +129,7 @@ public class PositionServiceImpl implements PositionService {
     final int step = Integer.parseInt(stepValue);
     final var actionPosition = ActionPosition.builder()
       .position(position)
-      .isValid(true)
+      .valid(true)
       .build();
     switch (position.getDirection()) {
       case EAST:

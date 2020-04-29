@@ -1,6 +1,7 @@
 package de.idealo.position.service.api.error;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.exc.ValueInstantiationException;
 import de.idealo.position.service.api.dto.ErrorResponse;
 import de.idealo.position.service.domain.ErrorCode;
 import de.idealo.position.service.domain.ErrorResultException;
@@ -80,4 +81,15 @@ public class ErrorResponseControllerAdvice {
       );
   }
 
+  @ExceptionHandler(ValueInstantiationException.class)
+  public ResponseEntity<ErrorResponse> handleIValueInstantiationException(final ValueInstantiationException ex) {
+    return ResponseEntity.status(BAD_REQUEST)
+      .body(ErrorResponse.builder()
+        .code(ErrorCode.INVALID_REQUEST.name())
+        .type(BAD_REQUEST.name())
+        .message(ex.getMessage())
+        .status(ErrorCode.INVALID_REQUEST.getStatus().value())
+        .build()
+      );
+  }
 }
