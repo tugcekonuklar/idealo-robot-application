@@ -17,10 +17,18 @@ This service provides you as a some information are below:
     * validity of the action. When action runs successfully  validation sets true, otherwise is false.
 * Final Position of all actions with direction
 
+### Important Details
+
+** Initial position (start position) starts always (0,0) EAST.
+
 ** If the action is invalid or exceeds the max limit of the grid, position does not change end of the action step and validation sets false.
    With these result of actions client can investigate each step and understand of the result of the actions.
 
 ## Sample
+
+### Endpoint
+
+POST `/api/positions`
 
 #### Request:
 

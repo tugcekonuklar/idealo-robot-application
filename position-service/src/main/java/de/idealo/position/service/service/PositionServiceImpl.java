@@ -42,7 +42,7 @@ public class PositionServiceImpl implements PositionService {
                                     final int verticalLimit,
                                     final int horizontalLimit) {
     final var actionPositions = new ArrayList<ActionPosition>();
-    var currentPosition = Position.builder().x(0).y(0).build();
+    var currentPosition = Position.builder().x(0).y(0).direction(EAST).build();
     for (final String step : steps) {
       final var actionPosition = renderStep(step, currentPosition, verticalLimit, horizontalLimit);
       actionPositions.add(actionPosition);
