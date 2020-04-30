@@ -21,8 +21,13 @@ This service provides you as a some information are below:
 
 ** Initial position (start position) starts always (0,0) EAST.
 
+** Each directions has 90 degrees differences.
+
 ** If the action is invalid or exceeds the max limit of the grid, position does not change end of the action step and validation sets false.
    With these result of actions client can investigate each step and understand of the result of the actions.
+
+** If commands are not valid or exceeded the grid size. Application does not return error, does not change the position.
+Application works as Fault Tolerance system.
 
 ## Sample
 
@@ -104,21 +109,27 @@ App runs default `8080` port. `http://localhost:8080/`
 
 Useful commands:
 
-* `mvn clean install` -- fully clean and install dependencies
-* `mvn test` -- runs tests
-* `mvn compile` -- compile application
-* `mvn package` -- create package of application
-* `mvn clear verify` -- runs CheckStyle
+#### `mvn clean install`
+ fully clean and install dependencies
+#### `mvn test`
+ runs tests
+#### `mvn compile`
+ compiles application
+#### `mvn package`
+ creates package of application
+#### `mvn clear verify`
+ runs CheckStyle
 
 ## Running Application
 
 After you create package of the application, in the path of the application on terminal, write the command which is below to run application.
 
-`javac -jar target/position-service-0.0.1-SNAPSHOT.jar`
+#### `javac -jar target/position-service-0.0.1-SNAPSHOT.jar`
 
 Run with command:
 
-`mvn spring-boot:run` - starts application
+#### `mvn spring-boot:run`
+starts application
 
 
 ## Importing & Building

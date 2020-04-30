@@ -4,11 +4,13 @@ This project is to give movement to a mini robot on the grid (5x5).
 
 In this project you will give some commands to the mini robot and it will move the position which you want to send.
 
+Robot starting position is always is {0,0} EAST. 
+
 ![Screenshot](home-page.png)
 
 After you write your commands robot will move the final position on the grid by using `position-service` as backend service. `position-service` provides required information for robot position according to the commands.
 
-### Valid Comands 
+### Valid Commands 
 
 * `POSITION {X} {Y} {DIRECTION}` -> Sets position {X,Y} in the selected Direction (EAST, WEST, NORTH, SOUTH)
 * `FORWARD {X}`  ->  Move X steps 
@@ -19,9 +21,8 @@ After you write your commands robot will move the final position on the grid by 
 
 #### Important  Notes !
 * Commands are not case sensitive, you can type small case also.
-* Each new line is a new command. If you dont put new line between them, application wont run the command.
+* Each new line is a new command. If you don't put new line between them, application wont run the rest of command in the line.
 * You must put space for each parameters of the command.
-
 
 ## Sample 
 
@@ -55,11 +56,11 @@ Result
 
 Installs all node dependecies
 
-### `yarn install`
+#### `yarn install`
 
 In the project directory, you can run:
 
-### `yarn start`
+#### `yarn start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -67,12 +68,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+#### `yarn test`
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+#### `yarn build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.

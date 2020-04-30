@@ -4,6 +4,8 @@ This project is to give movement to a mini robot on the grid (5x5).
 
 In this project you will give some commands to the mini robot and it will move the position which you want to send.
 
+Robot starting position is always is {0,0} EAST. 
+
 ![Screenshot](./robot-client/home-page.png)
 
 After you write your commands robot will move the final position on the grid by using `position-service` as backend service. `position-service` provides required information for robot position according to the commands.
@@ -19,7 +21,7 @@ After you write your commands robot will move the final position on the grid by 
 
 #### Important  Notes !
 * Commands are not case sensitive, you can type small case also.
-* Each new line is a new command. If you dont put new line between them, application wont run the command.
+* Each new line is a new command. If you don't put new line between them, application wont run the rest of command in the line.
 * You must put space for each parameters of the command.
 
 
@@ -55,16 +57,16 @@ There are 2 ways to run:
 To run applications `robot-client` and `position-service` together. 
 You can run `docker-compose.yml` file by using the command.
 
-### `docker-compose up`
+#### `docker-compose up`
 
 After docker containers build and run `robot-client` application will run on your local `http://localhost:3000` 
 and `positon-service` will serve `http://localhost:8080`
 
-### `docker-compose stop`
+#### `docker-compose stop`
 
 To stop all running containers which the compose file was created.
 
-### `docker-compose kill`
+#### `docker-compose kill`
 
 To kill all running containers which the compose file was created.
 
