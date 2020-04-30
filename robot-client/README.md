@@ -6,7 +6,7 @@ In this project you will give some commands to the mini robot and it will move t
 
 ![Screenshot](home-page.png)
 
-After you write your commands robot will move the final position on the grid.
+After you write your commands robot will move the final position on the grid by using `position-service` as backend service. `position-service` provides required information for robot position according to the commands.
 
 ### Valid Comands 
 

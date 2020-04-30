@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import "./homepage.styles.scss";
 import CustomButton from '../../components/custom-button/custom-button.components'
 import CustomInput from '../../components/command-input/command-input.components'
@@ -11,9 +11,12 @@ import south from '../../assets/south.svg';
 const HomePage = () => {
 
     const [script, setScript] = useState("");
+    // eslint-disable-next-line
     const [x, setX] = useState(5);
+    // eslint-disable-next-line
     const [y, setY] = useState(5);
     const [final, setFinal] = useState(null);
+    // eslint-disable-next-line
     const [actions, setActions] = useState([]);
     const [tableContent, setTableContent] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
@@ -27,6 +30,7 @@ const HomePage = () => {
     }, [final]);
 
     const handleChange = event => {
+        // eslint-disable-next-line
         const { value, name } = event.target;
         setScript(value);
     };
@@ -90,7 +94,7 @@ const HomePage = () => {
                 }
                 else {
                     if (column === a + 1 && row === b + 1) {
-                        children.push(<td className="td1" key={indexId}><img src={robotDirection(direction)}/></td>)
+                        children.push(<td className="td1" key={indexId}><img src={robotDirection(direction)} alt="Robot"/></td>)
                     } else {
                         children.push(<td className="td" key={indexId}>{` `}</td>)
                     }
@@ -104,14 +108,14 @@ const HomePage = () => {
 
     const robotDirection = (direction) => {
         switch (direction) {
-            case "EAST":
-                return east;
             case "WEST":
                 return west;
             case "NORTH":
                 return north;
             case "SOUTH":
                 return south;
+            default:
+                return east;
         }
     }
 
