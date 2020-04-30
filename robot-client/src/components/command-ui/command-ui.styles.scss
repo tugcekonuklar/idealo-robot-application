@@ -1,0 +1,13 @@
+.command-ui {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 380px;
+  background-color: pink;
+
+  .title {
+    margin: 10px 0;
+  } 
+}
+  
