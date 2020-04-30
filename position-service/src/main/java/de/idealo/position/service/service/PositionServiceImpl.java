@@ -148,7 +148,7 @@ public class PositionServiceImpl implements PositionService {
         }
         return actionPosition.withPosition(position.withY(positionY - step));
       case SOUTH:
-        if (positionY + step < horizontalLimit) {
+        if (positionY + step > horizontalLimit) {
           return actionPosition.withValid(false);
         }
         return actionPosition.withPosition(position.withY(positionY + step));

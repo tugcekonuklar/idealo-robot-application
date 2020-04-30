@@ -5,6 +5,7 @@ import de.idealo.position.service.api.dto.PositionResponse;
 import de.idealo.position.service.service.PositionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ import static org.springframework.http.HttpStatus.OK;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/api/positions")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PositionController {
 
   private final PositionService service;
