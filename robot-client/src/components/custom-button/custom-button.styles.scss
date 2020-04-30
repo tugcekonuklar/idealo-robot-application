@@ -6,13 +6,14 @@
     line-height: 50px;
     padding: 0 35px 0 35px;
     font-size: 15px;
-    background-color: green;
+    background-color: #F29D35;
     color: white;
     text-transform: uppercase;
-    font-family: "Open Sans Condensed";
+    //font-family: "Open Sans Condensed";
     font-weight: bolder;
     border: none;
     cursor: pointer;
+    margin: 20px;
   
     &:hover {
       background-color: white;

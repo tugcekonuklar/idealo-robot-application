@@ -64,7 +64,6 @@ class CommandUi extends React.Component {
                         required />
                     <CustomButton type="submit">Move</CustomButton>
                 </form>
-
             </div>
         );
     };

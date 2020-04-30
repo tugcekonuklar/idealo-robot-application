@@ -3,19 +3,20 @@ $main-color: black;
 
 .custom-input {
     background: none;
-    background-color: white;
+    background-color: #F2ECE4;
     color: $sub-color;
     font-size: 18px;
-    padding: 10px 10px 10px 5px;
     display: block;
     width: 100%;
     border: none;
     border-radius: 0;
-    border-bottom: 1px solid $sub-color;
-    margin: 25px 0;
+    margin: 10px 0;
 
     &:focus {
       outline: none;
     }
+}
+textarea {
+  resize: none;
 }
 
