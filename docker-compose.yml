@@ -1,0 +1,19 @@
+version: '3'
+services:
+  position-service:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./position-service
+    ports:
+      - 8080:8080
+  robo-client:
+    depends_on:
+      - position-service
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./robot-client
+    ports:
+      - 3000:3000
+    stdin_open: true
+
