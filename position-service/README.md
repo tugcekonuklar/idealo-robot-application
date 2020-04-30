@@ -98,7 +98,6 @@ You can see from `http://localhost:8080/swagger-ui.html` address.
 * RestAssured
 * Checkstyle
 * SwaggerUI
-* CircleCI
 * Docker
 
 ## Building Application
