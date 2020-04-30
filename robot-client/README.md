@@ -1,6 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Move Mini Robot Application
 
-## Available Scripts
+This project is to give movement to a mini robot on the grid (5x5). 
+
+In this project you will give some commands to the mini robot and it will move the position which you want to send.
+
+![Screenshot](home-page.png)
+
+After you write your commands robot will move the final position on the grid.
+
+### Valid Comands 
+
+* `POSITION {X} {Y} {DIRECTION}` -> Sets position {X,Y} in the selected Direction (EAST, WEST, NORTH, SOUTH)
+* `FORWARD {X}`  ->  Move X steps 
+* `RIGHT` -> Turns right in the current position
+* `LEFT` -> Turns left in the current position
+* `TURNAROUND` -> Turns back in the current position
+* `WAIT` -> Waits in the current position
+
+#### Important  Notes !
+* Commands are not case sensitive, you can type small case also.
+* Each new line is a new command. If you dont put new line between them, application wont run the command.
+* You must put space for each parameters of the command.
+
+
+## Sample 
+
+Sample Command
+
+You have to write all command in a new line. If command is not valid, robot wont move and stays current. position.
+
+```text
+POSITION 1 3 EAST
+FORWARD 3
+WAIT
+TURNAROUND
+FORWARD 1
+RIGHT
+FORWARD 2
+```
+
+Result
+
+![Screenshot](home-page-result.png)
+
+
+## Libraries & Tools
+
+* ReactJs
+* Eslint
+* Node Sass
+* Docker
+
+## Building Application
+
+Installs all node dependecies
+
+### `yarn install`
 
 In the project directory, you can run:
 
@@ -27,42 +82,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Needs To Improve
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Can be more component base.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
