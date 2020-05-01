@@ -62,6 +62,9 @@ You can run `docker-compose.yml` file by using the command.
 After docker containers build and run `robot-client` application will run on your local `http://localhost:3000` 
 and `positon-service` will serve `http://localhost:8080`
 
+### `docker-compose up --build`
+Before run, build all docker containers again.
+
 #### `docker-compose stop`
 
 To stop all running containers which the compose file was created.
