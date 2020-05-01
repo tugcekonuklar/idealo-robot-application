@@ -1,9 +1,16 @@
-.home-page {
+.home-page-group {
     width: 850px;
     display: flex;
     justify-content: space-between;
     margin: 30px auto;
   }
+
+.home-page {
+    flex: 1;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
 
 .main-container {
     display: flex;
@@ -12,9 +19,8 @@
     background-color: #03A696;
     text-align: center;
     width: 390px;
-  
+
     .title {
-      margin: 10px 0;
       color: white;
     } 
 
@@ -47,4 +53,18 @@
       word-wrap: break-word;
       margin: 5px 0;
   }
+}
+
+.group-container{
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  background-color: #03A696;
+  text-align: center;
+  width: 850px;
+
+  .title {
+    margin: 10px 0;
+    color: white;
+  } 
 }

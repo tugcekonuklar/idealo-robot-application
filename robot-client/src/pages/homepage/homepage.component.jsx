@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import "./homepage.styles.scss";
 import CustomButton from '../../components/custom-button/custom-button.components'
 import CustomInput from '../../components/command-input/command-input.components'
+import { ActionList } from "../../components/actions/actions.componet";
 import east from '../../assets/east.svg';
 import west from '../../assets/west.svg';
 import north from '../../assets/north.svg';
@@ -50,12 +51,12 @@ const HomePage = () => {
         })
             .then(response => response.json())
             .then(data => {
-                if(data.status){
+                if (data.status) {
                     console.error('Error:', data);
                     setFinal(null);
                     setActions(null);
                     setErrorMessage(data.message);
-                }else{
+                } else {
                     console.log('Success:', JSON.stringify(data));
                     setFinal(data.final);
                     setActions(data.actions);
@@ -94,7 +95,7 @@ const HomePage = () => {
                 }
                 else {
                     if (column === a + 1 && row === b + 1) {
-                        children.push(<td className="td1" key={indexId}><img src={robotDirection(direction)} alt="Robot"/></td>)
+                        children.push(<td className="td1" key={indexId}><img src={robotDirection(direction)} alt="Robot" /></td>)
                     } else {
                         children.push(<td className="td" key={indexId}>{` `}</td>)
                     }
@@ -119,33 +120,45 @@ const HomePage = () => {
         }
     }
 
+    const actionList = useMemo(() => {
+        if (!actions) return []
+        return actions;
+      }, [actions]);
+
     return (
         <div className="home-page">
-            <div className="main-container">
-                <h2 className="title">Move Mini Robot</h2>
-                <span className="title">Each line will be a new command. Let's move! </span>
-                <span className="errorMessage">{errorMessage}</span>
-                <form className="command-ui-form" onSubmit={handleSubmit}>
-                    <CustomInput name="script"
-                        type="text"
-                        label="Command"
-                        value={script}
-                        handleChange={handleChange}
-                        rows="15"
-                        cols="30"
-                        placeholder="Write your command in here"
-                        required />
-                    <CustomButton type="submit">Move</CustomButton>
-                </form>
+            <div className="home-page-group">
+                <div className="main-container">
+                    <h2 className="title">Move Mini Robot</h2>
+                    <span className="title">Each line will be a new command. Let's move! </span>
+                    <span className="errorMessage">{errorMessage}</span>
+                    <form className="command-ui-form" onSubmit={handleSubmit}>
+                        <CustomInput name="script"
+                            type="text"
+                            label="Command"
+                            value={script}
+                            handleChange={handleChange}
+                            rows="12"
+                            cols="30"
+                            placeholder="Write your command in here"
+                            required />
+                        <CustomButton type="submit">Move</CustomButton>
+                    </form>
+                </div>
+                <div className="main-container">
+                    <h2 className="title">Robot Canvas</h2>
+                    <table>
+                        <tbody>
+                            {tableContent}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div className="main-container">
-                <h2 className="title">Robot Canvas</h2>
-                <span className="title">Robot Position</span>
-                <table>
-                    <tbody>
-                        {tableContent}
-                    </tbody>
-                </table>
+            <div className="home-page-group">
+                <div className="group-container">
+                    <h2 className="title">Robot Journey</h2>
+                    <ActionList actions={actionList}></ActionList>
+                </div>
             </div>
         </div>
     )

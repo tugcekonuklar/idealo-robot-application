@@ -44,6 +44,8 @@ Result
 
 ![Screenshot](home-page-result.png)
 
+You can also follow the robot journey step by step. 
+When actions runs successfully result will be green, if it is not will be red.
 
 ## Libraries & Tools
 

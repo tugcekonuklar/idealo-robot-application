@@ -107,9 +107,9 @@ public class PositionServiceImpl implements PositionService {
                                       final int horizontalLimit) {
     final var vertical = Integer.parseInt(details.get(1));
     final var horizontal = Integer.parseInt(details.get(2));
-    if (vertical > verticalLimit
+    if (vertical >= verticalLimit
       || vertical < 0
-      || horizontal > horizontalLimit
+      || horizontal >= horizontalLimit
       || horizontal < 0) {
       throw ErrorCode.INVALID_INITIAL_POSITION.asErrorResult(vertical, horizontal);
     }
@@ -133,7 +133,7 @@ public class PositionServiceImpl implements PositionService {
       .build();
     switch (position.getDirection()) {
       case EAST:
-        if (positionX + step > verticalLimit) {
+        if (positionX + step >= verticalLimit) {
           return actionPosition.withValid(false);
         }
         return actionPosition.withPosition(position.withX(positionX + step));
@@ -148,7 +148,7 @@ public class PositionServiceImpl implements PositionService {
         }
         return actionPosition.withPosition(position.withY(positionY - step));
       case SOUTH:
-        if (positionY + step > horizontalLimit) {
+        if (positionY + step >= horizontalLimit) {
           return actionPosition.withValid(false);
         }
         return actionPosition.withPosition(position.withY(positionY + step));
