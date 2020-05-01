@@ -23,6 +23,12 @@ After you write your commands robot will move the final position on the grid by 
 * Commands are not case sensitive, you can type small case also.
 * Each new line is a new command. If you don't put new line between them, application wont run the rest of command in the line.
 * You must put space for each parameters of the command.
+* Initial position (start position) starts always (0,0) EAST.
+* Each directions has 90 degrees differences.
+* If the action is invalid or exceeds the max limit of the grid, position does not change and result sets false / red. Otherwise is true / green.
+   With these result of actions client can investigate each step and understand of the result of the actions.
+* If commands are not valid or exceeded the grid size. Application does not return error, does not change the position.
+Application works as Fault Tolerance system.
 
 ## Sample 
 

@@ -17,16 +17,16 @@ This service provides you as a some information are below:
     * validity of the action. When action runs successfully  validation sets true, otherwise is false.
 * Final Position of all actions with direction
 
-### Important Details
+#### Important  Notes !
 
-** Initial position (start position) starts always (0,0) EAST.
+* Initial position (start position) starts always (0,0) EAST.
 
-** Each directions has 90 degrees differences.
+* Each directions has 90 degrees differences.
 
-** If the action is invalid or exceeds the max limit of the grid, position does not change end of the action step and validation sets false.
+If the action is invalid or exceeds the max limit of the grid, position does not change and result sets false. Otherwise is true.
    With these result of actions client can investigate each step and understand of the result of the actions.
 
-** If commands are not valid or exceeded the grid size. Application does not return error, does not change the position.
+* If commands are not valid or exceeded the grid size. Application does not return error, does not change the position.
 Application works as Fault Tolerance system.
 
 ## Sample
