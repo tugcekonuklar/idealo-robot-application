@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import "./homepage.styles.scss";
 import CustomButton from '../../components/custom-button/custom-button.components'
 import CustomInput from '../../components/command-input/command-input.components'
-import { ActionList } from "../../components/actions/actions.componet";
+import { ActionList } from "../../components/actions/actions.component";
 import east from '../../assets/east.svg';
 import west from '../../assets/west.svg';
 import north from '../../assets/north.svg';
