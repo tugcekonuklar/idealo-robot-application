@@ -13,6 +13,7 @@ import static de.idealo.position.service.domain.FinalPositionFixture.someFinalPo
 import static de.idealo.position.service.service.PositionRenderFixture.someCommand;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
@@ -42,6 +43,15 @@ class PositionServiceTest {
     assertNotNull(result.getMessage());
     assertEquals(result.getCode(), ErrorCode.INVALID_INITIAL_POSITION.name());
     assertEquals(result.getType(), ErrorCode.INVALID_INITIAL_POSITION.getStatus().name());
+  }
+
+  @Test
+  @DisplayName("Render Position throws error null param ")
+  public void shouldRenderThrowsNulPointerExceptionWhenMandatoryParamIsNull() {
+    final var invalidCommand = someCommand().withScript(null);
+
+    final var result = assertThrows(NullPointerException.class, () -> service.renderPosition(invalidCommand));
+    assertNull(result.getMessage());
   }
 
 }

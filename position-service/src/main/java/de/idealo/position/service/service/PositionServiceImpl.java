@@ -7,7 +7,9 @@ import de.idealo.position.service.domain.FinalPosition;
 import de.idealo.position.service.domain.Position;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,6 +21,7 @@ import static de.idealo.position.service.domain.Directions.WEST;
 
 @Slf4j
 @Service
+@Validated
 public class PositionServiceImpl implements PositionService {
   private static final String SPLIT_NEW_LINE = "[\\r\\n]+";
   private static final String SPLIT_WHITE_SPACE = "\\s+";
@@ -33,7 +36,7 @@ public class PositionServiceImpl implements PositionService {
   private static final int TURN_AROUND_ANGLE = 180;
 
   @Override
-  public FinalPosition renderPosition(final PositionCommand command) {
+  public FinalPosition renderPosition(@Valid final PositionCommand command) {
     log.info("Rendering position with command: {}", command);
     return renderSteps(getSteps(command.getScript()), command.getX(), command.getY());
   }
